@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jane Doe | Software Developer Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Fira Code Font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+        
+        /* Terminal Theme Styling */
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #1a202c; /* Deep Gray/Black */
+            color: #a7f3d0; /* Light Mint Green */
+            text-shadow: 0 0 5px rgba(52, 211, 153, 0.4); /* Subtle CRT Glow */
+        }
+        
+        /* Core Section Heading for the portfolio structure */
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #34d399; /* Vibrant Green */
+        }
+        
+        /* Command Block Styling: Cursor on the section title */
+        .section-heading::after {
+            content: '█'; /* Use block character for terminal look */
+            position: absolute;
+            bottom: -5px;
+            right: -1.5rem;
+            font-size: 1.5rem;
+            animation: blink 1s step-end infinite;
+        }
+
+        /* Box Shadow for terminal "glow" - used on internal blocks */
+        .terminal-box-shadow {
+            box-shadow: 0 0 10px rgba(52, 211, 153, 0.6), 0 0 20px rgba(52, 211, 153, 0.2);
+            border: 1px solid #34d399;
+            background-color: #2d3748; /* Slightly lighter inner background */
+            padding: 1.5rem;
+            /* Remove rounded-none as it's set on individual elements now */
+        }
+
+        /* Terminal Frame Wrapper - used for the main hero window */
+        .terminal-frame-bg {
+            background-color: #1a202c;
+            border: 1px solid #34d399;
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.5);
+            border-radius: 6px;
+        }
+        .terminal-header {
+            background-color: #3e4c5b;
+            height: 1.75rem;
+            padding: 0 1rem;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            display: flex;
+            align-items: center;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .cursor-blink-small::after {
+            content: '█';
+            display: inline-block;
+            margin-left: 0.25rem;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="antialiased text-green-300">
+
+    <!-- Header & Navigation (System Status Bar) -->
+    <header class="bg-gray-900 shadow-xl sticky top-0 z-10 border-b border-green-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex justify-between items-center h-16">
+                <!-- System Prompt / Name -->
+                <a href="#" class="text-xl font-extrabold text-green-500 hover:text-green-400 transition duration-300">USER@JD-PC:~$</a>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-green-300 hover:text-green-500 font-medium transition duration-300">/about</a>
+                    <a href="#skills" class="text-green-300 hover:text-green-500 font-medium transition duration-300">/skills</a>
+                    <a href="#projects" class="text-green-300 hover:text-green-500 font-medium transition duration-300">/projects</a>
+                    <a href="#contact" class="text-green-300 hover:text-green-500 font-medium transition duration-300">/contact</a>
+                </div>
+
+                <!-- Mobile Menu Button (Minimalist, terminal style) -->
+                <div class="md:hidden">
+                    <span class="text-green-500 font-bold">[MENU]</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section (The Main Terminal Window) -->
+        <section id="hero" class="py-16 md:py-24 bg-gray-900 border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Terminal Frame Wrapper -->
+                <div class="terminal-frame-bg">
+                    <!-- Terminal Header Bar -->
+                    <div class="terminal-header">
+                        <div class="dot" style="background-color: #ef4444;"></div>
+                        <div class="dot" style="background-color: #facc15;"></div>
+                        <div class="dot" style="background-color: #34d399;"></div>
+                        <span class="text-xs text-gray-400 ml-4">/bin/bash - Jane Doe Portfolio</span>
+                    </div>
+                    
+                    <!-- Terminal Content Area -->
+                    <pre class="p-6 sm:p-8 text-sm whitespace-pre-wrap">
+<span class="text-green-500">USER@JD-PC:~$</span> <span class="text-yellow-400">cat welcome.txt</span>
+
+<span class="text-white text-base font-bold">------------------------------------------</span>
+<span class="text-white text-base font-bold">| WELCOME TO JANE DOE'S PORTFOLIO SYSTEM |</span>
+<span class="text-white text-base font-bold">------------------------------------------</span>
+
+<span class="text-green-500">USER@JD-PC:~$</span> <span class="text-yellow-400">whoami -v</span>
+<span class="text-white text-3xl font-extrabold block mt-2">JANE DOE</span>
+<span class="text-green-400 text-lg block mb-4">Full Stack Software Developer</span>
+
+<span class="text-gray-400">STATUS:</span> Ready to build scalable, tested applications.
+<span class="text-gray-400">LAST_UPDATE:</span> 2025-12-14
+
+<span class="text-green-500">USER@JD-PC:~$</span> <span class="text-yellow-400">ls -l projects/</span><span class="cursor-blink-small"></span>
+                    </pre>
+
+                    <a href="#projects" class="inline-block m-6 px-4 py-2 bg-green-700 text-black text-sm font-semibold border-2 border-green-500 hover:bg-green-600 transition duration-300">
+                        <span class="text-black font-bold">EXECUTE</span> view-projects
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Me / Overview -->
+        <section id="about" class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-heading">About Me</h3>
+                <div class="terminal-box-shadow">
+                    <pre class="text-sm whitespace-pre-wrap">
+<span class="text-green-500">USER@JD-PC:~$</span> <span class="text-yellow-400">cat about_me.md</span>
+
+<span class="text-green-500 font-bold">--- FILE START (about_me.md) ---</span>
+
+<span class="text-white">I am a passionate software developer with 5+ years of experience transforming complex ideas into practical, high-performance web applications. My journey started with a fascination for data structures and evolved into a love for crafting beautiful user interfaces and scalable backend systems.</span>
+
+<span class="text-green-400 block mt-4">CURRENT_STACK:</span> <span class="text-white">React for front-end architecture and Python/Node.js for microservices.</span>
+<span class="text-gray-400">GOAL:</span> <span class="text-white">Clean code, robust testing, and continuous learning.</span>
+
+<span class="text-green-500 font-bold block mt-4">--- FILE END ---</span>
+<span class="text-green-500 font-bold">SUCCESS:</span> Display complete.
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Skills Section -->
+        <section id="skills" class="py-16 md:py-24 bg-gray-900 border-t border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-heading">Technical Skills</h3>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Skill Card 1: Frontend -->
+                    <div class="p-4 rounded-none terminal-box-shadow hover:bg-gray-700 transition duration-300">
+                        <h4 class="text-xl font-bold mb-3 text-green-500">$ Frontend</h4>
+                        <ul class="space-y-1 text-green-300 text-sm list-none pl-0">
+                            <li><span class="text-green-500">>></span> JavaScript (ES6+)</li>
+                            <li><span class="text-green-500">>></span> React / Redux</li>
+                            <li><span class="text-green-500">>></span> HTML5 & CSS3</li>
+                            <li><span class="text-green-500">>></span> Tailwind CSS / SASS</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Skill Card 2: Backend -->
+                    <div class="p-4 rounded-none terminal-box-shadow hover:bg-gray-700 transition duration-300">
+                        <h4 class="text-xl font-bold mb-3 text-green-500">$ Backend</h4>
+                        <ul class="space-y-1 text-green-300 text-sm list-none pl-0">
+                            <li><span class="text-green-500">>></span> Node.js / Express</li>
+                            <li><span class="text-green-500">>></span> Python / Django</li>
+                            <li><span class="text-green-500">>></span> RESTful APIs</li>
+                            <li><span class="text-green-500">>></span> Authentication (JWT)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Card 3: Databases -->
+                    <div class="p-4 rounded-none terminal-box-shadow hover:bg-gray-700 transition duration-300">
+                        <h4 class="text-xl font-bold mb-3 text-green-500">$ Databases</h4>
+                        <ul class="space-y-1 text-green-300 text-sm list-none pl-0">
+                            <li><span class="text-green-500">>></span> PostgreSQL</li>
+                            <li><span class="text-green-500">>></span> MongoDB</li>
+                            <li><span class="text-green-500">>></span> Firebase / Firestore</li>
+                            <li><span class="text-green-500">>></span> SQL/NoSQL Querying</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Card 4: Tools & DevOps -->
+                    <div class="p-4 rounded-none terminal-box-shadow hover:bg-gray-700 transition duration-300">
+                        <h4 class="text-xl font-bold mb-3 text-green-500">$ Tools & DevOps</h4>
+                        <ul class="space-y-1 text-green-300 text-sm list-none pl-0">
+                            <li><span class="text-green-500">>></span> Git / GitHub</li>
+                            <li><span class="text-green-500">>></span> Docker / Kubernetes</li>
+                            <li><span class="text-green-500">>></span> AWS / Netlify</li>
+                            <li><span class="text-green-500">>></span> Jest / Cypress</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Projects Section (The Core) -->
+        <section id="projects" class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-heading">Featured Projects</h3>
+
+                <div class="space-y-12">
+                    
+                    <!-- Project 1 Card -->
+                    <div class="p-6 sm:p-8 rounded-none terminal-box-shadow flex flex-col lg:flex-row items-start hover:bg-gray-800 transition duration-300">
+                        <div class="lg:w-1/3 mb-6 lg:mb-0 lg:mr-8 overflow-hidden rounded-none border border-green-500">
+                            <img class="w-full h-auto object-cover" 
+                                src="https://placehold.co/600x400/2d3748/a7f3d0?text=PROJECT_1_SCREENSHOT" 
+                                alt="Screenshot of the E-Commerce API Project">
+                        </div>
+                        <div class="lg:w-2/3">
+                            <h4 class="text-2xl font-bold text-green-500 mb-2">E-Commerce Microservice API</h4>
+                            <p class="text-sm font-semibold text-green-600 mb-4">TECHNOLOGIES: Node.js, Express, MongoDB, AWS Lambda</p>
+                            <p class="text-green-300 mb-4 text-sm">
+                                <span class="text-green-500">CMD:</span> A high-performance, scalable RESTful API built to handle product catalog, user authentication, and order processing for a high-traffic e-commerce platform. Focused on secure data handling and low latency response times.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/janedoe/ecommerce-api" target="_blank" class="flex items-center text-green-300 hover:text-green-500 font-medium transition duration-300 text-sm">
+                                    <span class="mr-1 text-green-500">$</span>
+                                    git clone repo
+                                </a>
+                                <a href="#" target="_blank" class="flex items-center text-green-300 hover:text-green-500 font-medium transition duration-300 text-sm">
+                                    <span class="mr-1 text-green-500">$</span>
+                                    run demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 Card -->
+                    <div class="p-6 sm:p-8 rounded-none terminal-box-shadow flex flex-col lg:flex-row items-start hover:bg-gray-800 transition duration-300">
+                        <div class="lg:w-1/3 mb-6 lg:mb-0 lg:mr-8 overflow-hidden rounded-none border border-green-500">
+                            <img class="w-full h-auto object-cover" 
+                                src="https://placehold.co/600x400/2d3748/a7f3d0?text=PROJECT_2_SCREENSHOT" 
+                                alt="Screenshot of the Interactive React Dashboard Project">
+                        </div>
+                        <div class="lg:w-2/3">
+                            <h4 class="text-2xl font-bold text-green-500 mb-2">Interactive Data Dashboard</h4>
+                            <p class="text-sm font-semibold text-green-600 mb-4">TECHNOLOGIES: React, TypeScript, D3.js, Tailwind CSS</p>
+                            <p class="text-green-300 mb-4 text-sm">
+                                <span class="text-green-500">CMD:</span> A dynamic single-page application for visualizing complex financial data. Features real-time charting, customizable layouts, and responsive design for mobile data analysis. Built with a focus on component reusability and state management with Redux.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/janedoe/react-dashboard" target="_blank" class="flex items-center text-green-300 hover:text-green-500 font-medium transition duration-300 text-sm">
+                                    <span class="mr-1 text-green-500">$</span>
+                                    git clone repo
+                                </a>
+                                <a href="#" target="_blank" class="flex items-center text-green-300 hover:text-green-500 font-medium transition duration-300 text-sm">
+                                    <span class="mr-1 text-green-500">$</span>
+                                    run demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="https://github.com/janedoe" target="_blank" class="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-semibold hover:bg-green-700 hover:text-black transition duration-300 text-sm">
+                        ls -l /github/janedoe
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-gray-900 border-t border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="text-4xl font-bold mb-4 text-green-500">ping janedoe</h3>
+                <p class="text-green-300 mb-8 max-w-2xl mx-auto text-sm">
+                    Connection established. I am currently open to new opportunities and collaborations. Use the following protocols to initiate contact:
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+                    
+                    <!-- Email Link -->
+                    <a href="mailto:jane.doe@example.com" class="flex items-center justify-center bg-green-700 text-black px-6 py-3 rounded-none font-semibold hover:bg-green-600 transition duration-300 text-sm terminal-box-shadow">
+                        <span class="mr-2 text-gray-900 font-bold">$</span> mail -s "Opportunity" jane.doe@example.com
+                    </a>
+
+                    <!-- GitHub Link -->
+                    <a href="https://github.com/janedoe" target="_blank" class="flex items-center justify-center bg-gray-700 text-green-300 px-6 py-3 rounded-none font-semibold hover:bg-gray-600 transition duration-300 text-sm terminal-box-shadow">
+                        <span class="mr-2 text-green-500">$</span> browse /github/janedoe
+                    </a>
+
+                    <!-- LinkedIn Link -->
+                    <a href="https://linkedin.com/in/janedoe" target="_blank" class="flex items-center justify-center bg-blue-900 text-green-300 px-6 py-3 rounded-none font-semibold hover:bg-blue-800 transition duration-300 text-sm terminal-box-shadow">
+                        <span class="mr-2 text-green-500">$</span> connect -p linkedin
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-green-500 py-6 border-t border-green-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs">
+            <p><span class="text-green-300 font-bold">JD-PC:~$</span> &copy; 2025 Jane Doe. System Online.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
